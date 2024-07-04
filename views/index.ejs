@@ -3,16 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <h1>Welcome Stalker</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aperiam sed
-      suscipit inventore a iste dolores totam. Laboriosam voluptatum, doloribus
-      saepe totam dignissimos ipsam modi pariatur maiores tenetur recusandae
-      nemo?
-    </p>
+    <form action="/meteo" onsubmit="" method="GET">
+      <label for="city">Nom de la ville</label>
+      <input id="city" name="city" type="text" placeholder="Entrez la ville" />
+      <button type="submit">Get Température</button>
+    </form>
+    <section>
+      <% if(error){ %>
+      <p><%= error %></p>
+      <% }else if(meteo){%>
+      <span><%= Math.round(meteo.main.temp) + "°C" %></span>
+      <% } %>
+    </section>
   </body>
 </html>
